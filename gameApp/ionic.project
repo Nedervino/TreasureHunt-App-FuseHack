@@ -1,0 +1,12 @@
+{
+  "name": "gameApp",
+  "app_id": "0bf9b728",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

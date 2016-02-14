@@ -1,0 +1,41 @@
+<ion-view title="Game setup">
+    <ion-content padding="true" id="body" class="has-header">
+        <div id="setup">
+            <p style="color:white">Pick a scenario:</p>
+            <div>
+            </div>
+            <form class="list">
+                <ion-radio style="color:black;opacity:0.26;">Scenario 1: Meltdown </ion-radio>
+                <ion-radio style="color:black;opacity:0.26;">Scenario 2: Earthquake</ion-radio>
+                <ion-radio style="color:black;opacity:0.25;">Scenario 3: Terrorists</ion-radio>
+            </form>
+            <form class="list">
+                <div class="list">
+                  <label class="item item-input item-select">
+                    <div class="input-label">
+                      Difficulty
+                    </div>
+                    <select style="font:white;color:white;">
+                      <option>Easy</option>
+                      <option selected >Medium</option>
+                      <option>Hard</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="list">
+                  <label class="item item-input item-select">
+                    <div class="input-label">
+                      Game Mode
+                    </div>
+                    <select style="font:white;color:white;">
+                      <option>Free for All</option>
+                      <option selected>Collaboration</option>
+                    </select>
+                  </label>
+                </div>
+            </form>
+            <form class="list"></form>
+            <a ng-click="start()" id="button" class="button button-stable button-block ">Next</a>
+        </div>
+    </ion-content>
+</ion-view>

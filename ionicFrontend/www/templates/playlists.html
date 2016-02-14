@@ -1,0 +1,30 @@
+<ion-view view-title="Treasure Hunt" class="mainScreen">			//main title
+
+  <ion-content>
+  	 <img ng-src="{{card.recept_afbeelding}}">
+	<!-- <div class="buttons" style="color:black">
+
+        <button class="button button-block button-dark" href="#/app/playlists/:1">
+             Create new game
+        </button>
+        <button class="button button-block button-dark">
+             Join game
+        </button>
+        <button class="button button-block button-dark">
+             Discover friends nearby!
+        </button>
+    </div>-->
+
+    <!-- Lijstje-->
+    <ion-list>
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+      	<div class="buttonItems">
+	        <button class="button button-block icon-right ion-chevron-right button-dark" >
+	             {{playlist.title}}
+	        </button>
+        </div>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

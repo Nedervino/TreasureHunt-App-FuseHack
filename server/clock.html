@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bomb clock</title>
+  <link href='https://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <style>
+  html body div {width: 100%; height: 100%;}
+  div {display: flex; align-items: center; justify-content: center; font-family: 'Share Tech Mono', ; color: red; font-size: 2000%; margin-top:350px; }
+  </style>
+  <script>
+  var timeout = 1000;
+  var time = 5;
+  function changeText(text) {
+  document.getElementById("clocktext").innerHTML = text;
+  }
+  
+  function countdown() {
+    var seconds = time % 60;
+    var minutes = (time - seconds) / 60;
+    if (minutes >= 10 && seconds >= 10) { 			// 11:11
+      var displaytext = [minutes, seconds].join(":");
+    } else if (minutes >= 10 && seconds < 10){ 		// 11:09
+	  var displaytext = [minutes, seconds].join(":0");
+    } else if (minutes < 10 && seconds >= 10){		// 09:11
+		var displaytext = [0, [minutes, seconds].join(":")].join("");
+	} else {										// 09:09
+		var displaytext = [0, [minutes, seconds].join(":0")].join("");
+	}
+    changeText(displaytext);
+
+	if (time-1 < 0) {
+		changeText("BOOM");
+		stoptimer();
+		return;
+	}
+	time = time - 1;
+	setTimeout((function (){countdown();}), timeout);
+  }
+  
+  function stoptimer() {
+	$.ajax({
+		type: "POST",
+		url: 'https://xmarksthespot.localtunnel.me/timer_alert',
+		data: ({}),
+		dataType: "html",
+		success: function(data) {},
+		error: function() {
+			stoptimer();
+		}
+	});
+  }
+  
+  function starttimer() {
+	countdown(time);
+	getdata();
+  }
+  
+  function waitforstart() {
+	$.ajax({
+		type: "POST",
+		url: 'https://xmarksthespot.localtunnel.me/timer_info',
+		data: ({"current_time" : time}),
+		dataType: "html",
+		success: function(data) {
+			data = JSON.parse(data);
+			if (data.started) {
+                                time = data.start_time
+				starttimer();
+			} else {
+				setTimeout((function (){waitforstart();}), 500);
+			}
+		},
+		error: function() {
+			setTimeout((function (){waitforstart();}), 500);
+		}
+	});
+  }
+  
+  function getdata() {
+    $.ajax({
+        type: "POST",
+        url: 'https://xmarksthespot.localtunnel.me/timer_info',
+        data: ({"current_time" : time}),
+        dataType: "html",
+        success: function(data) {
+			data = JSON.parse(data);
+			timeout = data.timer_speed;
+			time = time + data.delta_time;
+			setTimeout((function (){getdata();}), 500);
+        },
+        error: function() {
+            setTimeout((function (){getdata();}), 500);
+        }
+    });
+  }
+
+  $(document).ready(function() {
+    waitforstart();
+  });
+  </script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="JNrLijHMsc6TeEhl+i6jd11Gyl91rXDOU80TjMhKgJTyqZyTNYCw3r65m37rhl2jQvqk57yMQ3AODc7jPW1IdQ==" />
+</head>
+<body bgcolor="#000000">
+<div id="clocktext">
+
+</div>
+
+</body>
+</html>

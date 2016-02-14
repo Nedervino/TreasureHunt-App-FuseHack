@@ -1,0 +1,155 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+
+
+#image{
+	width:100%;
+	height:100%;
+	position:absolute;
+}
+
+#body{
+	background-image:url(http://thebodyguardapp.com/tst/images/320_dark-background-iphone-wallpaper.png.jpg) ;
+	background-color:black;
+	background-size:100%;
+}
+
+
+
+#button{
+	border-color: #b2b2b2 !important;
+	background-color: rgba(216, 206, 206, 0.92) !important;
+	color: #FFF;
+}
+
+#tallbutton{
+	padding-top:10px;
+	padding-bottom:10px;
+	border-color: #b2b2b2 !important;
+	background-color: rgba(216, 206, 206, 0.92);
+	color: #FFF;
+	.red{
+		background-color: rgba(115, 4, 4, 0.92) !important;
+		border-style:none;
+	}
+}
+
+#setup{
+	/*background-color:rgba(138, 138, 138, 0.28) !important;*/
+	.radio-content{
+		background-color:rgba(138, 138, 138, 0.28) !important;
+		border-style:none !important;
+		font:white !important;
+	}
+	.input-label{
+		color:rgba(255, 255, 255, 0.84);
+
+	}
+	.select{
+		font:white;
+		color:white;
+
+	}
+	.item{
+		background-color:rgba(138, 138, 138, 0.28) !important;
+		border-style:none !important;
+		font:white !important;
+
+	}
+	.item-select select{
+		background-color:rgba(138, 138, 138, 0.0) !important;
+		border-style:none !important;
+		font:white !important;
+	}
+	.list{
+		background-color:rgba(138, 138, 138, 0.28) !important;
+		font:white !important;
+		border-style:none !important;
+	}
+}
+
+
+
+#inviteList{
+	background-color:rgba(138, 138, 138, 0.28);
+	font:white;
+	border-style:none;
+	ion-item{
+		background-color:rgba(138, 138, 138, 0.28);
+		border-style:none;
+		p{
+			color:#EFF1F5;
+		}
+		#span{
+			color:rgba(92, 255, 43, 0.76) !important;
+			float:right;
+		}
+		#ionicon{
+			float:right;
+			color:rgb(179, 179, 179) !important;
+			font-size:1.2em;
+		}
+	}
+}
+
+#objectivelist{
+	.item{
+		border-style:none !important;
+		color:rgba(255, 255, 255, 0.91);
+		background-color:rgba(138, 138, 138, 0.28) !important;
+
+	}
+	.item-select select{
+		background-color:rgba(138, 138, 138, 0.0) !important;
+		border-style:none !important;
+		font:white;
+	}
+	.list{
+		background-color:rgba(138, 138, 138, 0.28) !important;
+		font:white;
+		border-style:none !important;
+	}
+}
+
+.objectives{
+	background-image: url("../img/TH-background.png") ;
+	background-size:cover;
+	width:100% !important;
+	height:100% !important;
+
+}
+/*
+img{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#startDiv{
+	text-align:center;
+}
+*/

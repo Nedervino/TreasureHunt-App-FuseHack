@@ -1,0 +1,21 @@
+<ion-view title="Login">
+    <ion-content padding="true" id="body" class="has-header">
+
+        <form class="list" ng-submit="submit()">
+
+            <label class="item item-input" style="background-color:rgba(138, 138, 138, 0.28);border-style:none;">
+                <span class="input-label" style="color:#EFF1F5">Username</span>
+                <input type="text" name="username" style="color:#EFF1F5" placeholder="enter username" ng-model="data.username">
+            </label>
+            
+            <label class="item item-input" style="background-color:rgba(138, 138, 138, 0.28);border-style:none;">
+                <span class="input-label" style="color:#EFF1F5">Phone Number</span>
+                <input type="tel" name="phonenumber" style="color:#EFF1F5" placeholder="enter phone number" ng-model="data.phonenumber">
+            </label>
+
+            <input class="button button-stable button-block button-large" id="button" type="submit" name="submit" value="Login">
+
+        </form>
+
+    </ion-content>
+</ion-view>
